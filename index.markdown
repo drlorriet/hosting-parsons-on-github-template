@@ -9,21 +9,21 @@ title: Multiple Parson's Problems on One Page
 
 ## Parsons 1 (Modified Line Based Grader)
 Re-arrange the blocks below so they print out "Hello World!"
-<div id="parsons_hello1-sortableTrash" class="sortable-code"></div> 
-<div id="parsons_hello1-sortable" class="sortable-code"></div> 
+<div id="parsons_hello2-sortableTrash" class="sortable-code"></div> 
+<div id="parsons_hello2-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="parsons_hello1-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="parsons_hello1-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="parsons_hello2-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="parsons_hello2-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
 (function(){
   var initial = "print(&quot;Hello&quot;) \nprint(&quot; &quot;)\n" +
-    "print(&quot;world!&quot;)\n" +
+    "print(&quot;from Lorrie!&quot;)\n" +
     "print(Hello) #distractor\n" +
     "print(world) #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "parsons_hello1-sortable",
+    "sortableId": "parsons_hello2-sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
@@ -31,15 +31,15 @@ Re-arrange the blocks below so they print out "Hello World!"
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
-    "trashId": "parsons_hello1-sortableTrash"
+    "trashId": "parsons_hello2-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#parsons_hello1-newInstanceLink").click(function(event){ 
+  $("#parsons_hello2-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#parsons_hello1-feedbackLink").click(function(event){ 
+  $("#parsons_hello2-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
   }); 
