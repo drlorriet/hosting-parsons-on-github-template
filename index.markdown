@@ -7,6 +7,45 @@ title: Multiple Parson's Problems on One Page
 ---
 # Parsons Practice
 
+## Parsons 1 (Modified Line Based Grader)
+Re-arrange the blocks below so they print out "Hello World!"
+<div id="parsons_hello1-sortableTrash" class="sortable-code"></div> 
+<div id="parsons_hello1-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="parsons_hello1-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="parsons_hello1-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "print(&quot;Hello&quot;) \nprint(&quot; &quot;)\n" +
+    "print(&quot;world!&quot;)\n" +
+    "print(Hello) #distractor\n" +
+    "print(world) #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "parsons_hello1-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": false,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "parsons_hello1-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#parsons_hello1-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#parsons_hello1-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
+
 ## Parsons 1 (Line Based Grader)
 Re-arrange the blocks below so they print out "Hello World!"
 
